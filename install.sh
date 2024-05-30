@@ -4,7 +4,7 @@
 SCRIPT_URL="https://raw.githubusercontent.com/versole/cao/master/cao.sh"
 
 # Target directory for installation
-INSTALL_DIR="$HOME/.cao/"
+INSTALL_DIR="$HOME/.cao"
 
 # Script name
 SCRIPT_NAME="cao"
