@@ -22,6 +22,9 @@ check_existing
 # 下载cao.sh脚本
 curl -o "$INSTALL_DIR/$SCRIPT_NAME" "$SCRIPT_URL"
 
+# 添加可执行权限
+chmod +x "$INSTALL_DIR/$SCRIPT_NAME"
+
 # 判断是zsh还是bash, 向对应的配置文件添加PATH
 if [ -n "$ZSH_VERSION" ]; then
     echo "export PATH=\"\$PATH:$INSTALL_DIR\"" >> "$HOME/.zshrc"
@@ -30,7 +33,8 @@ elif [ -n "$BASH_VERSION" ]; then
 fi
 
 # 重新加载配置文件
-source "$HOME/.zshrc" || source "$HOME/.bashrc"
+source "$HOME/.zshrc"
+source "$HOME/.bashrc"
 
 
 # 检查cao.sh脚本是否已正确安装并可执行
