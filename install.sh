@@ -20,7 +20,7 @@ check_existing() {
 check_existing
 
 # Ensure the configuration directory exists
-mkdir -p $(dirname "$INSTALL_DIR")
+mkdir -p "$INSTALL_DIR"
 
 # Download the cao.sh script
 curl -o "$INSTALL_DIR/$SCRIPT_NAME" "$SCRIPT_URL"
