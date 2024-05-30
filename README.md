@@ -8,6 +8,10 @@ To install the CAO tool, execute the following command in your terminal:
 ``` bash
 curl -o- https://raw.githubusercontent.com/versole/cao/master/install.sh | bash
 
+or
+
+curl -o- https://raw.githubusercontent.com/versole/cao/master/install.sh | zsh
+
 ```
 This script will download and run the `install.sh` script from the CAO repository.
 

@@ -7,6 +7,10 @@ CAO 是一个命令行工具，根据用户描述直接获取相应的命令。�
 ```bash
 curl -o- https://raw.githubusercontent.com/versole/cao/master/install.sh | bash
 
+or
+
+curl -o- https://raw.githubusercontent.com/versole/cao/master/install.sh | zsh
+
 source <your-shell-profile-file> #~/.zshrc   ~/.bashrc ...
 ```
 
