@@ -1,5 +1,3 @@
-# !/bin/bash
-
 # Use ~/.config/api_config.sh as the location for the configuration file
 CONFIG_FILE="$HOME/.cao/config/api_config.sh"
 
@@ -40,7 +38,7 @@ update_or_append_config() {
         # 使用 '|' 作为分隔符
         sed -i"${backup_ext}" "s|^$key=.*|$key=\"$value\"|" "$config_file"
     else
-        echo "$key=\"$value\"" >> "$config_file"
+        echo "$key=\"$value\"" >>"$config_file"
     fi
 
     # 如果是 macOS 系统且创建了备份文件，则删除它
@@ -106,5 +104,12 @@ elif [[ $1 == "q" ]]; then
         echo "No specific command found. You may try again. And dot not ask anything else about the command."
     fi
 else
-    echo "Please use the format 'cao q <question>' to input. \n'cao set key <api-key>' or 'cao set url <api-url>' to set the API key and URL."
+    echo "Please use the format 'cao q <question>' to input."
+    echo "'cao set key <api-key>' to set the API key."
+    echo "'cao set url <api-url>' to set the API URL."
+
+    echo "Example calls:"
+    echo "cao q How to get current git user name?"
+    echo "cao set key YOUR_OPENAI_API_OR_PROXY_KEY"
+    echo "cao set url YOUR_OPENAI_API_URL_OR_PROXY_URL"
 fi

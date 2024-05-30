@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 # GitHub上的cao.sh脚本的URL路径
 SCRIPT_URL="https://raw.githubusercontent.com/versole/cao/master/cao.sh"
@@ -31,11 +31,6 @@ if [ -n "$ZSH_VERSION" ]; then
 elif [ -n "$BASH_VERSION" ]; then
     echo "export PATH=\"\$PATH:$INSTALL_DIR\"" >> "$HOME/.bashrc"
 fi
-
-# 重新加载配置文件
-source "$HOME/.zshrc"
-source "$HOME/.bashrc"
-
 
 # 检查cao.sh脚本是否已正确安装并可执行
 if command -v "$SCRIPT_NAME" >/dev/null; then
