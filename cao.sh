@@ -35,13 +35,12 @@ update_or_append_config() {
     fi
 
     if grep -q "^$key=" "$config_file"; then
-        # 使用 '|' 作为分隔符
         sed -i"${backup_ext}" "s|^$key=.*|$key=\"$value\"|" "$config_file"
     else
         echo "$key=\"$value\"" >>"$config_file"
     fi
 
-    # 如果是 macOS 系统且创建了备份文件，则删除它
+    # Remove the backup file if it exists, ps: only for mac
     if [[ "$OSTYPE" == "darwin"* && -f "${config_file}${backup_ext}" ]]; then
         rm "${config_file}${backup_ext}"
     fi
