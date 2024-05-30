@@ -1,13 +1,13 @@
 #!/bin/bash
 
-# GitHub上的fk.sh脚本的URL路径
-SCRIPT_URL="https://raw.githubusercontent.com/versole/fk/master/fk.sh"
+# GitHub上的cao.sh脚本的URL路径
+SCRIPT_URL="https://raw.githubusercontent.com/versole/cao/master/cao.sh"
 
 # 目标目录
-INSTALL_DIR="$HOME/.fk/"
+INSTALL_DIR="$HOME/.cao/"
 
 # 脚本名称
-SCRIPT_NAME="fk"
+SCRIPT_NAME="cao"
 
 # 判断是否安装过
 check_existing() {
@@ -19,7 +19,7 @@ check_existing() {
 
 check_existing
 
-# 下载fk.sh脚本
+# 下载cao.sh脚本
 curl -o "$INSTALL_DIR/$SCRIPT_NAME" "$SCRIPT_URL"
 
 # 判断是zsh还是bash, 向对应的配置文件添加PATH
@@ -33,7 +33,7 @@ fi
 source "$HOME/.zshrc" || source "$HOME/.bashrc"
 
 
-# 检查fk.sh脚本是否已正确安装并可执行
+# 检查cao.sh脚本是否已正确安装并可执行
 if command -v "$SCRIPT_NAME" >/dev/null; then
     echo "'$SCRIPT_NAME' installed successfully and is available on the PATH."
 else

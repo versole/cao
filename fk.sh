@@ -1,6 +1,7 @@
 # !/bin/bash
+
 # Use ~/.config/api_config.sh as the location for the configuration file
-CONFIG_FILE="$HOME/.fk/config/api_config.sh"
+CONFIG_FILE="$HOME/.cao/config/api_config.sh"
 
 # Ensure the configuration directory exists
 mkdir -p $(dirname "$CONFIG_FILE")
@@ -58,11 +59,11 @@ set_api_url() {
 
 check_key_and_api() {
     if [ -z "$API_KEY" ]; then
-        echo "API_KEY is not set. Please set it using 'fk set key <api-key>'"
+        echo "API_KEY is not set. Please set it using 'cao set key <api-key>'"
         exit 1
     fi
     if [ -z "$API_URL" ]; then
-        echo "API_URL is not set. Please set it using 'fk set url <api-url>'"
+        echo "API_URL is not set. Please set it using 'cao set url <api-url>'"
         exit 1
     fi
 }
@@ -105,5 +106,5 @@ elif [[ $1 == "q" ]]; then
         echo "No specific command found. You may try again. And dot not ask anything else about the command."
     fi
 else
-    echo "Please use the format 'fk q <question>' to input. \n'fk set key <api-key>' or 'fk set url <api-url>' to set the API key and URL."
+    echo "Please use the format 'cao q <question>' to input. \n'cao set key <api-key>' or 'cao set url <api-url>' to set the API key and URL."
 fi
