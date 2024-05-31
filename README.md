@@ -1,10 +1,21 @@
+<div align="center">
+<h1 align="center">CAO</h1>
+
+[中文文档](https://github.com/versole/cao/blob/master/README.zh_CN.MD)
+
+</div>
+
 # CAO Command-Line Tool
+
 **!!!Only support macos!!!** 
+
 ## Introduction
 CAO is a command-line tool that directly fetches corresponding commands based on user descriptions, by interacting with the ChatGPT API.
 
 ## Installation
+
 To install the CAO tool, execute the following command in your terminal:
+
 ``` bash
 curl -o- https://raw.githubusercontent.com/versole/cao/master/install.sh | bash
 

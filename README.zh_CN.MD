@@ -1,5 +1,14 @@
+<div align="center">
+<h1 align="center">CAO</h1>
+
+[中文文档](https://github.com/versole/cao/blob/master/README.zh_CN.MD)
+
+</div>
+
 # CAO 命令行工具
+
 **只支持macos**
+
 ## 介绍
 CAO 是一个命令行工具，根据用户描述直接获取相应的命令。就是简单调了个chatgpt api, 灵感来源[thefuck](https://github.com/nvbn/thefuck)
 
@@ -16,6 +25,7 @@ source <your-shell-profile-file> #~/.zshrc   ~/.bashrc ...
 
 
 ## 配置
+
 具体的openai api key与调用url需要手动设置
 
 这里有绑定github可以获取免费的api_key 与 调用url, 每天100次的免费调用（3.5 turbo）[chatanywhere](https://github.com/chatanywhere/GPT_API_free)
@@ -25,6 +35,7 @@ cao set key <你的api密钥>
 cao set url <你的api-url>
 ```
 ## 使用方法
+
 基于描述询问特定命令：
 
 ``` bash
