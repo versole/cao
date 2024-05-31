@@ -1,5 +1,5 @@
 # CAO 命令行工具
-
+**只支持macos**
 ## 介绍
 CAO 是一个命令行工具，根据用户描述直接获取相应的命令。就是简单调了个chatgpt api, 灵感来源[thefuck](https://github.com/nvbn/thefuck)
 

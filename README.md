@@ -1,5 +1,5 @@
 # CAO Command-Line Tool
-
+**!!!Only support macos!!!** 
 ## Introduction
 CAO is a command-line tool that directly fetches corresponding commands based on user descriptions, by interacting with the ChatGPT API.
 
