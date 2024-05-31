@@ -1,6 +1,8 @@
 # Use ~/.config/api_config.sh as the location for the configuration file
 CONFIG_FILE="$HOME/.cao/config/api_config.sh"
 
+# Ensure the configuration directory exists
+mkdir -p $(dirname "$CONFIG_FILE")
 # Create a default configuration file if it does not exist
 if [ ! -f "$CONFIG_FILE" ]; then
     echo "API_KEY=\"\"" >"$CONFIG_FILE"
@@ -17,7 +19,7 @@ call_chatgpt() {
       "messages": [{"role": "user", "content": "'"${prompt//\"/\\\"}"'"}],
       "max_tokens": 500
     }')
-    echo "$response" | jq -r '.choices[0].message.content'
+    echo "$response" | perl -ne 'print $1 if /"content":\s*"([^"]*)"/'
 }
 
 update_or_append_config() {
