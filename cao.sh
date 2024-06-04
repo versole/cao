@@ -7,6 +7,7 @@ mkdir -p $(dirname "$CONFIG_FILE")
 if [ ! -f "$CONFIG_FILE" ]; then
     echo "API_KEY=\"\"" >"$CONFIG_FILE"
     echo "API_URL=\"\"" >>"$CONFIG_FILE"
+    echo "API_MODEL=\"gpt-3.5-turbo\"" >>"$CONFIG_FILE"
 fi
 
 call_chatgpt() {
@@ -15,7 +16,7 @@ call_chatgpt() {
         -H "Authorization: Bearer $API_KEY" \
         -H "Content-Type: application/json" \
         -d '{
-      "model": "gpt-3.5-turbo",
+      "model": "'$API_MODEL'",
       "messages": [{"role": "user", "content": "'"${prompt//\"/\\\"}"'"}],
       "max_tokens": 500
     }')
@@ -53,6 +54,10 @@ set_api_url() {
     update_or_append_config "API_URL" "$1" "$CONFIG_FILE"
 }
 
+set_api_model() {
+    update_or_append_config "API_MODEL" "$1" "$CONFIG_FILE"
+}
+
 check_key_and_api() {
     if [ -z "$API_KEY" ]; then
         echo "API_KEY is not set. Please set it using 'cao set key <api-key>'"
@@ -74,6 +79,10 @@ if [[ $1 == "set" ]]; then
         set_api_url "${@:3}"
         echo "API_URL has been updated."
         ;;
+    model)
+        set_api_model "${@:3}"
+        echo "API_MODEL has been updated."
+        ;;
     *)
         echo "Invalid option, can be either 'url' or 'key'"
         ;;
@@ -91,7 +100,7 @@ elif [[ $1 == "q" ]]; then
     command=$(echo "$response" | sed -n 's/^The command is: //p')
 
     if [ -n "$command" ]; then
-        echo "The command is: \033[32m$command\033[0m"
+        echo -e "The command is: \033[32m $command \033[0m"
         read -p "Do you want to execute this command? (y/n): " execute
         if [ "$execute" == "y" ]; then
             eval "$command"
@@ -102,7 +111,7 @@ elif [[ $1 == "q" ]]; then
         echo "\033[31mNo specific command found. You may try again. And dot not ask anything else about the command.\033[0m"
     fi
 else
-    echo "Please use the format '\033[32mcao q <question>\033[0m' to input."
+    echo -e "Please use the format '\033[32mcao q <question>\033[0m' to input."
     echo "'cao set key <api-key>' to set the API key."
     echo "'cao set url <api-url>' to set the API URL."
 
