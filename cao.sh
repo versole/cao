@@ -91,7 +91,7 @@ elif [[ $1 == "q" ]]; then
     command=$(echo "$response" | sed -n 's/^The command is: //p')
 
     if [ -n "$command" ]; then
-        echo "The command is: $command"
+        echo "The command is: \033[32m$command\033[0m"
         read -p "Do you want to execute this command? (y/n): " execute
         if [ "$execute" == "y" ]; then
             eval "$command"
@@ -99,15 +99,15 @@ elif [[ $1 == "q" ]]; then
             echo "Command not executed."
         fi
     else
-        echo "No specific command found. You may try again. And dot not ask anything else about the command."
+        echo "\033[31mNo specific command found. You may try again. And dot not ask anything else about the command.\033[0m"
     fi
 else
-    echo "Please use the format 'cao q <question>' to input."
+    echo "Please use the format '\033[32mcao q <question>\033[0m' to input."
     echo "'cao set key <api-key>' to set the API key."
     echo "'cao set url <api-url>' to set the API URL."
 
     echo "Example calls:"
-    echo "cao q How to get current git user name?"
     echo "cao set key YOUR_OPENAI_API_OR_PROXY_KEY"
     echo "cao set url YOUR_OPENAI_API_URL_OR_PROXY_URL"
+    echo "cao q How to get current git user name?"
 fi

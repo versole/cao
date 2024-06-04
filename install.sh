@@ -35,4 +35,4 @@ elif [ -n "$BASH_VERSION" ]; then
     echo "export PATH=\"\$PATH:$INSTALL_DIR\"" >> "$HOME/.bashrc"
 fi
 
-echo "\n\nPlease run 'source ~/.zshrc' or 'source ~/.bashrc' to start using cao."
+echo "\n\n\033[32mPlease run 'source ~/.zshrc' or 'source ~/.bashrc' to start using cao.\033[0m"
