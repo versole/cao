@@ -95,7 +95,7 @@ elif [[ $1 == "q" ]]; then
     check_key_and_api
 
     query="${@:2}"
-    prompt="You are a command-line tool. The user input is: ${query}. Please provide the specific command in the format: 'The command is: <command>'. do not answer anything else after the command."
+    prompt="You are a command-line tool. The user input is: ${query}. Please provide the specific command in the format: 'The command is: <command>'.if includes multiple command, try to merge to one line. do not answer anything else after the command."
     response=$(call_chatgpt "$prompt")
     command=$(echo "$response" | sed -n 's/^The command is: //p')
 
