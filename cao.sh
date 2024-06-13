@@ -118,5 +118,6 @@ else
     echo "Example calls:"
     echo "cao set key YOUR_OPENAI_API_OR_PROXY_KEY"
     echo "cao set url YOUR_OPENAI_API_URL_OR_PROXY_URL"
+    echo "cao set model gpt-4o"
     echo "cao q How to get current git user name?"
 fi
